@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'slim-rails', '~> 3.2'
 gem 'devise', '~> 4.7'
+gem 'devise-i18n'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | First
+      = t(:title)
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -10,18 +10,17 @@ html
   body
     .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.shadow-sm
       h5.my-0.mr-md-auto.font-weight-normal
-        | Learning inc.
+        =
       nav.my-2.my-md-0.mr-md-3
-        a.p-2.text-dark[href="/"]
-          | Main
-        a.p-2.text-dark[href="#"]
-          | About us
-        a.p-2.text-dark[href="#"]
-          | Create task
-      a.btn.btn-outline-primary[href="/logout"]
-          | Sign out
+        = link_to(t(:root_path), root_path, class: 'btn btn-outline-primary m-1')
+        - if current_user.nil?
+          = link_to(t('devise.sessions.new.sign_in'), new_user_session_path, class: 'btn btn-primary m-1')
+        - else
+          = link_to(current_user.username, edit_user_registration_path, class: 'btn btn-primary m-1')
+          = link_to(t('devise.sessions.sign_out'), destroy_user_session_path, :method => 'delete', class: 'btn btn-danger m-1')
+
     .container
-      = yield
+      == yield
     p.notice
       = notice
     p.alert

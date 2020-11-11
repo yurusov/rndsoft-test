@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :ensure_user_is_admin, only: [:create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
@@ -68,8 +69,17 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
 
+    def ensure_user_is_admin
+      unless current_user.admin?
+        respond_to do |format|
+          format.html { redirect_to articles_url, alert: 'Access forbidden' }
+          format.json { head :no_content }
+        end
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :content, :user_id)
+      params.require(:article).permit(:title, :content, :user_id, :edits_left)
     end
 end

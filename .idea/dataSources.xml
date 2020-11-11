@@ -9,5 +9,10 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="User Data Source -" uuid="57c9713c-4ba6-4724-a3b7-590bf99298fc">
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>java.sql.Driver</jdbc-driver>
+    </data-source>
   </component>
 </project>

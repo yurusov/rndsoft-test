@@ -1,15 +1,15 @@
 p#notice = notice
 
 p
-  strong Title:
+  strong = t('.title')
   = @article.title
 p
-  strong Content:
+  strong = t('.content')
   = @article.content
 p
-  strong User:
-  =  @article.user.email
-
-=> link_to 'Edit', edit_article_path(@article)
-'|
-=< link_to 'Back', articles_path
+  strong = t('.user')
+  =  @article.user.username
+- if current_user.try(:admin?)
+  => link_to t(:edit), edit_article_path(@article)
+  '|
+=< link_to t(:back), articles_path

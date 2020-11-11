@@ -1,11 +1,9 @@
-h1 Listing articles
-
 table
   thead
     tr
-      th Title
-      th Content
-      th User
+      th = t('.title')
+      th = t('.content')
+      th = t('.user')
       th
       th
       th
@@ -17,10 +15,11 @@ table
         td = article.content
         td = article.user.username
         td = article.created_at
-        td = link_to 'Show', article
-        td = link_to 'Edit', edit_article_path(article)
-        td = link_to 'Destroy', article, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to t(:show), article
+        - if current_user.try(:admin?)
+          td = link_to t(:edit), edit_article_path(article)
+          td = link_to t(:destroy), article, data: { confirm: t('.confirm') }, method: :delete
 
 br
-
-= link_to 'New Article', new_article_path
+- if current_user.try(:admin?)
+  = link_to t('articles.new.new_article'), new_article_path
