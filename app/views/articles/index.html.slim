@@ -13,7 +13,7 @@ table
       tr
         td = article.title
         td = article.content
-        td = article.user.username
+        td = article.user_id
         td = article.created_at
         td = link_to t(:show), article
         - if current_user.try(:admin?)

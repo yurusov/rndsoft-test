@@ -1,0 +1,14 @@
+{
+  "sqlite.databaseExtensions": [
+    "db",
+    "db3",
+    "sdb",
+    "s3db",
+    "sqlite",
+    "sqlite3",
+    "sqlite3-0",
+    "sqlite3-1",
+    "sqlite3-2",
+    "sqlite3-3"
+  ]
+}

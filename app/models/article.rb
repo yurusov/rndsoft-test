@@ -3,11 +3,11 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
   validates :user_id, presence: true
-  before_save :work_on_edits_left
+  before_save :check_edits_left
 
   private
 
-  def work_on_edits_left
+  def check_edits_left
     if edits_left.nil?
       self.edits_left = 5
     elsif edits_left <= 0
