@@ -10,10 +10,10 @@
   - (optional)rbenv
 
 * Deployment instructions:
-  1. bundler install
-  2. yarn install
-  3. rails db:migrate 
-  4. rails server
-  5. (optional cron tasks) whenever --update-crontab 
+  * bundler install
+  * yarn install
+  * rails db:migrate 
+  * rails server
+  * (optional cron tasks) whenever --update-crontab 
 
 First created user will be an admin. 
