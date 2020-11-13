@@ -2,7 +2,7 @@
 
 
 * System dependencies:
-  - ruby >= 2.7.1
+  - ruby 2.7.1
   - bundler
   - yarn
   - sqlite3
