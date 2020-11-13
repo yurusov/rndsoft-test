@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* System dependencies:
+  - ruby >= 2.7.1
+  - bundler
+  - yarn
+  - sqlite3
+  - cron
+  - (optional)rbenv
 
-* Ruby version
+* Deployment instructions:
+  1. bundler install
+  2. yarn install
+  3. rails db:migrate 
+  4. rails server
+  5. (optional cron tasks) whenever --update-crontab 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+First created user will be an admin. 
